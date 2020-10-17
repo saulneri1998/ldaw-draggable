@@ -7,9 +7,9 @@ exports.all = () => {
         .from('changes')
 }
 
-exports.create = (changeFrom, changeTo) => {
+exports.create = (orderId, changeFrom, changeTo) => {
     return knex('changes')
-        .insert({ from: changeFrom, to: changeTo });
+        .insert({ order_id: orderId, from: changeFrom, to: changeTo });
 }
 
 exports.find = (id) => {

@@ -6,10 +6,40 @@ exports.all = () => {
         .select('*')
         .from('orders')
 }
+exports.all1 = () => {
+    return knex
+        .select('*')
+        .from('orders')
+        .where('status', '1')
+}
 
-exports.create = (order) => {
+exports.all2 = () => {
+    return knex
+        .select('*')
+        .from('orders')
+        .where('status', '2')
+}
+exports.all3 = () => {
+    return knex
+        .select('*')
+        .from('orders')
+        .where('status', '3')
+}
+exports.all4 = () => {
+    return knex
+        .select('*')
+        .from('orders')
+        .where('status', '4')
+}
+exports.all5 = () => {
+    return knex
+        .select('*')
+        .from('orders')
+        .where('status', '5')
+}
+exports.create = (orderName) => {
     return knex('orders')
-        .insert({ name: order.name });
+        .insert({ name: orderName });
 }
 
 exports.find = (id) => {
@@ -29,9 +59,9 @@ exports.delete = (id) => {
         .del();
 }
 
-exports.changeStatus = (status) => {
+exports.changeStatus = (id, to) => {
     return knex('orders')
         .where('id', id)
-        .update('status', status);
+        .update('status', to);
 
 }
