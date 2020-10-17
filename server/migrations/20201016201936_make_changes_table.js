@@ -6,7 +6,7 @@ exports.up = function(knex) {
             table.foreign('order_id').references('orders.id')
             table.string('from', 512).notNullable();
             table.string('to', 512).notNullable();
-
+            table.timestamp('created_at').defaultTo(knex.fn.now());
         });
 };
 
